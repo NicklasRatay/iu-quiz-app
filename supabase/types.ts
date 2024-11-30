@@ -40,7 +40,27 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      add_audit_columns: {
+        Args: {
+          schema_name: string
+          table_name: string
+        }
+        Returns: undefined
+      }
+      create_audit_trigger: {
+        Args: {
+          schema_name: string
+          table_name: string
+        }
+        Returns: undefined
+      }
+      test_audit_columns: {
+        Args: {
+          schema_name: string
+          table_name: string
+        }
+        Returns: string[]
+      }
     }
     Enums: {
       [_ in never]: never
