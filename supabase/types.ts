@@ -34,10 +34,179 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profile: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          email: string
+          first_name: string
+          is_active: boolean
+          last_name: string
+          updated_at: string
+          updated_by: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at: string
+          created_by?: string | null
+          email: string
+          first_name: string
+          is_active?: boolean
+          last_name: string
+          updated_at: string
+          updated_by?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          email?: string
+          first_name?: string
+          is_active?: boolean
+          last_name?: string
+          updated_at?: string
+          updated_by?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "profile_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "profile_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "vw_user_role_list"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "profile_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "profile_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "vw_user_role_list"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
+      role: {
+        Row: {
+          description: string
+          id: number
+          name: string
+        }
+        Insert: {
+          description: string
+          id?: number
+          name: string
+        }
+        Update: {
+          description?: string
+          id?: number
+          name?: string
+        }
+        Relationships: []
+      }
+      user_role: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          role_id: number
+          updated_at: string
+          updated_by: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at: string
+          created_by?: string | null
+          role_id: number
+          updated_at: string
+          updated_by?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          role_id?: number
+          updated_at?: string
+          updated_by?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_role_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "user_role_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "vw_user_role_list"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "user_role_role_id_fkey"
+            columns: ["role_id"]
+            isOneToOne: false
+            referencedRelation: "role"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "user_role_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "user_role_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "vw_user_role_list"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "user_role_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "user_role_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "vw_user_role_list"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
     }
     Views: {
-      [_ in never]: never
+      vw_user_role_list: {
+        Row: {
+          email: string | null
+          first_name: string | null
+          is_active: boolean | null
+          last_name: string | null
+          roles: string | null
+          user_id: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       add_audit_columns: {
@@ -53,6 +222,12 @@ export type Database = {
           table_name: string
         }
         Returns: undefined
+      }
+      has_role: {
+        Args: {
+          role_name: string
+        }
+        Returns: boolean
       }
       test_audit_columns: {
         Args: {

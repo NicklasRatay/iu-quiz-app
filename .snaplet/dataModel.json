@@ -2492,6 +2492,279 @@
         }
       ]
     },
+    "profile": {
+      "id": "public.profile",
+      "schemaName": "public",
+      "tableName": "profile",
+      "fields": [
+        {
+          "id": "public.profile.user_id",
+          "name": "user_id",
+          "columnName": "user_id",
+          "type": "uuid",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": true,
+          "maxLength": null
+        },
+        {
+          "id": "public.profile.email",
+          "name": "email",
+          "columnName": "email",
+          "type": "text",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "public.profile.first_name",
+          "name": "first_name",
+          "columnName": "first_name",
+          "type": "text",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "public.profile.last_name",
+          "name": "last_name",
+          "columnName": "last_name",
+          "type": "text",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "public.profile.is_active",
+          "name": "is_active",
+          "columnName": "is_active",
+          "type": "bool",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": true,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "public.profile.created_at",
+          "name": "created_at",
+          "columnName": "created_at",
+          "type": "timestamptz",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "public.profile.created_by",
+          "name": "created_by",
+          "columnName": "created_by",
+          "type": "uuid",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "public.profile.updated_at",
+          "name": "updated_at",
+          "columnName": "updated_at",
+          "type": "timestamptz",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "public.profile.updated_by",
+          "name": "updated_by",
+          "columnName": "updated_by",
+          "type": "uuid",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "name": "users",
+          "type": "users",
+          "isRequired": true,
+          "kind": "object",
+          "relationName": "profileTousers",
+          "relationFromFields": [
+            "user_id"
+          ],
+          "relationToFields": [
+            "id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "profile_profile_created_byToprofile",
+          "type": "profile",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "profile_created_byToprofile",
+          "relationFromFields": [
+            "created_by"
+          ],
+          "relationToFields": [
+            "user_id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "profile_profile_updated_byToprofile",
+          "type": "profile",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "profile_updated_byToprofile",
+          "relationFromFields": [
+            "updated_by"
+          ],
+          "relationToFields": [
+            "user_id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "profile_profile_created_byToprofile",
+          "type": "profile",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "profile_created_byToprofile",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "profile_profile_updated_byToprofile",
+          "type": "profile",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "profile_updated_byToprofile",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "user_role_user_role_created_byToprofile",
+          "type": "user_role",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "user_role_created_byToprofile",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "user_role_user_role_updated_byToprofile",
+          "type": "user_role",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "user_role_updated_byToprofile",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "user_role_user_role_user_idToprofile",
+          "type": "user_role",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "user_role_user_idToprofile",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "profile_email_key",
+          "fields": [
+            "email"
+          ],
+          "nullNotDistinct": false
+        },
+        {
+          "name": "profile_pkey",
+          "fields": [
+            "user_id"
+          ],
+          "nullNotDistinct": false
+        }
+      ]
+    },
     "refresh_tokens": {
       "id": "auth.refresh_tokens",
       "schemaName": "auth",
@@ -2658,6 +2931,96 @@
           "name": "refresh_tokens_token_unique",
           "fields": [
             "token"
+          ],
+          "nullNotDistinct": false
+        }
+      ]
+    },
+    "role": {
+      "id": "public.role",
+      "schemaName": "public",
+      "tableName": "role",
+      "fields": [
+        {
+          "id": "public.role.id",
+          "name": "id",
+          "columnName": "id",
+          "type": "int8",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": {
+            "identifier": "\"public\".\"role_id_seq\"",
+            "increment": 1,
+            "start": 1
+          },
+          "hasDefaultValue": false,
+          "isId": true,
+          "maxLength": null
+        },
+        {
+          "id": "public.role.name",
+          "name": "name",
+          "columnName": "name",
+          "type": "text",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "public.role.description",
+          "name": "description",
+          "columnName": "description",
+          "type": "text",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "name": "user_role",
+          "type": "user_role",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "user_roleTorole",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "role_description_key",
+          "fields": [
+            "description"
+          ],
+          "nullNotDistinct": false
+        },
+        {
+          "name": "role_name_key",
+          "fields": [
+            "name"
+          ],
+          "nullNotDistinct": false
+        },
+        {
+          "name": "role_pkey",
+          "fields": [
+            "id"
           ],
           "nullNotDistinct": false
         }
@@ -4460,6 +4823,179 @@
         }
       ]
     },
+    "user_role": {
+      "id": "public.user_role",
+      "schemaName": "public",
+      "tableName": "user_role",
+      "fields": [
+        {
+          "id": "public.user_role.user_id",
+          "name": "user_id",
+          "columnName": "user_id",
+          "type": "uuid",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": true,
+          "maxLength": null
+        },
+        {
+          "id": "public.user_role.role_id",
+          "name": "role_id",
+          "columnName": "role_id",
+          "type": "int8",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": true,
+          "maxLength": null
+        },
+        {
+          "id": "public.user_role.created_at",
+          "name": "created_at",
+          "columnName": "created_at",
+          "type": "timestamptz",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "public.user_role.created_by",
+          "name": "created_by",
+          "columnName": "created_by",
+          "type": "uuid",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "public.user_role.updated_at",
+          "name": "updated_at",
+          "columnName": "updated_at",
+          "type": "timestamptz",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "public.user_role.updated_by",
+          "name": "updated_by",
+          "columnName": "updated_by",
+          "type": "uuid",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "name": "profile_user_role_created_byToprofile",
+          "type": "profile",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "user_role_created_byToprofile",
+          "relationFromFields": [
+            "created_by"
+          ],
+          "relationToFields": [
+            "user_id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "profile_user_role_updated_byToprofile",
+          "type": "profile",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "user_role_updated_byToprofile",
+          "relationFromFields": [
+            "updated_by"
+          ],
+          "relationToFields": [
+            "user_id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "profile_user_role_user_idToprofile",
+          "type": "profile",
+          "isRequired": true,
+          "kind": "object",
+          "relationName": "user_role_user_idToprofile",
+          "relationFromFields": [
+            "user_id"
+          ],
+          "relationToFields": [
+            "user_id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "role",
+          "type": "role",
+          "isRequired": true,
+          "kind": "object",
+          "relationName": "user_roleTorole",
+          "relationFromFields": [
+            "role_id"
+          ],
+          "relationToFields": [
+            "id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "user_role_pkey",
+          "fields": [
+            "role_id",
+            "user_id"
+          ],
+          "nullNotDistinct": false
+        }
+      ]
+    },
     "users": {
       "id": "auth.users",
       "schemaName": "auth",
@@ -5003,6 +5539,20 @@
           "isRequired": false,
           "kind": "object",
           "relationName": "sessionsTousers",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "profile",
+          "type": "profile",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "profileTousers",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,

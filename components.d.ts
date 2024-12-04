@@ -8,10 +8,16 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Button: typeof import('primevue/button')['default']
+    Dialog: typeof import('primevue/dialog')['default']
+    Drawer: typeof import('primevue/drawer')['default']
+    DynamicDialog: typeof import('primevue/dynamicdialog')['default']
     Form: typeof import('@primevue/forms/form')['default']
     FormField: typeof import('@primevue/forms/formfield')['default']
+    Menu: typeof import('primevue/menu')['default']
+    PanelMenu: typeof import('primevue/panelmenu')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ScrollTop: typeof import('primevue/scrolltop')['default']
     Toast: typeof import('primevue/toast')['default']
   }
   export interface ComponentCustomProperties {
