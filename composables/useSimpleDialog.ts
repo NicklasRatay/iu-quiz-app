@@ -1,5 +1,5 @@
-import SimpleDialogInfo from "~/components/SimpleDialog/SimpleDialogInfo.vue";
-import SimpleDialogConfirm from "~/components/SimpleDialog/SimpleDialogConfirm.vue";
+import SimpleDialogInfo from "@/components/SimpleDialog/SimpleDialogInfo.vue";
+import SimpleDialogConfirm from "@/components/SimpleDialog/SimpleDialogConfirm.vue";
 
 export const useSimpleDialog = () => {
     const dialog = useDialog();

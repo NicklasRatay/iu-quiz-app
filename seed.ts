@@ -172,6 +172,56 @@ const main = async () => {
         );
     }
 
+    seed.$store.question_status.push(
+        { id: 1, name: "Eingereicht" },
+        { id: 2, name: "Akzeptiert" },
+        { id: 3, name: "Abgelehnt" },
+    );
+
+    const questions = await seed.question((x) =>
+        x(150, {
+            question: (ctx) => copycat.sentence(ctx.seed).slice(0, -1) + "?",
+            hint: (ctx) => copycat.sentence(ctx.seed),
+            answer_option: (x) =>
+                x(4, {
+                    answer: (ctx) => copycat.sentence(ctx.seed),
+                    is_correct: (ctx) => copycat.bool(ctx.seed),
+                    justification: (ctx) => copycat.sentence(ctx.seed),
+                }),
+        }),
+    );
+
+    await seed.category((x) =>
+        x(20, {
+            name: (ctx) => copycat.word(ctx.seed),
+        }),
+    );
+
+    const courses = await seed.course((x) =>
+        x(10, {
+            name: (ctx) => copycat.word(ctx.seed),
+        }),
+    );
+
+    await Promise.all(
+        questions.question.map((question) => {
+            const randomCourse =
+                courses.course[
+                    Math.floor(Math.random() * courses.course.length)
+                ];
+            return seed.question_course((x) =>
+                x(1, {
+                    question_id: question.id,
+                    course_id: randomCourse.id,
+                }),
+            );
+        }),
+    );
+
+    await seed.question_category((x) => x(300));
+    await seed.question_course((x) => x(100));
+    await seed.marked_question((x) => x(75));
+
     process.exit();
 };
 
