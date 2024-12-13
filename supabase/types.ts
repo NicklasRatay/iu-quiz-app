@@ -825,11 +825,25 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
+            foreignKeyName: "quiz_quiz_status_id_fkey"
+            columns: ["quiz_status_id"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz"
+            referencedColumns: ["quiz_status_id"]
+          },
+          {
             foreignKeyName: "quiz_quiz_type_id_fkey"
             columns: ["quiz_type_id"]
             isOneToOne: false
             referencedRelation: "quiz_type"
             referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "quiz_quiz_type_id_fkey"
+            columns: ["quiz_type_id"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz"
+            referencedColumns: ["quiz_type_id"]
           },
           {
             foreignKeyName: "quiz_updated_by_fkey"
@@ -895,6 +909,13 @@ export type Database = {
             columns: ["quiz_id"]
             isOneToOne: false
             referencedRelation: "quiz"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "quiz_participant_quiz_id_fkey"
+            columns: ["quiz_id"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz"
             referencedColumns: ["id"]
           },
           {
@@ -992,6 +1013,13 @@ export type Database = {
             columns: ["quiz_id"]
             isOneToOne: false
             referencedRelation: "quiz"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "quiz_question_quiz_id_fkey"
+            columns: ["quiz_id"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz"
             referencedColumns: ["id"]
           },
           {
@@ -1184,6 +1212,55 @@ export type Database = {
           },
         ]
       }
+      vw_quiz: {
+        Row: {
+          created_at: string | null
+          created_by: string | null
+          id: number | null
+          question_count: number | null
+          quiz_status_id: number | null
+          quiz_status_name: string | null
+          quiz_type_id: number | null
+          quiz_type_name: string | null
+          seconds_per_question: number | null
+          status_icon: string | null
+          status_severity: string | null
+          type_icon: string | null
+          type_severity: string | null
+          updated_at: string | null
+          updated_by: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "quiz_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "quiz_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "vw_user_role_list"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "quiz_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "quiz_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "vw_user_role_list"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
       vw_user_role_list: {
         Row: {
           email: string | null
@@ -1210,6 +1287,38 @@ export type Database = {
           table_name: string
         }
         Returns: undefined
+      }
+      create_quiz: {
+        Args: {
+          p_quiz_type_id: number
+          p_seconds_per_question: number
+          p_number_of_questions: number
+          p_course_ids?: number[]
+          p_category_ids?: number[]
+        }
+        Returns: number
+      }
+      get_interactable_quizzes_for_user: {
+        Args: {
+          p_user_id: string
+        }
+        Returns: {
+          created_at: string | null
+          created_by: string | null
+          id: number | null
+          question_count: number | null
+          quiz_status_id: number | null
+          quiz_status_name: string | null
+          quiz_type_id: number | null
+          quiz_type_name: string | null
+          seconds_per_question: number | null
+          status_icon: string | null
+          status_severity: string | null
+          type_icon: string | null
+          type_severity: string | null
+          updated_at: string | null
+          updated_by: string | null
+        }[]
       }
       has_role: {
         Args: {

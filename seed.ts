@@ -222,6 +222,48 @@ const main = async () => {
     await seed.question_course((x) => x(100));
     await seed.marked_question((x) => x(75));
 
+    seed.$store.quiz_status.push(
+        { id: 1, name: "Inaktiv" },
+        { id: 2, name: "Aktiv" },
+        { id: 3, name: "Abgeschlossen" },
+    );
+
+    seed.$store.quiz_type.push(
+        { id: 1, name: "Individuell" },
+        { id: 2, name: "Kooperativ" },
+        { id: 3, name: "Kompetitiv" },
+    );
+
+    const quizzes = await seed.quiz((x) =>
+        x(20, {
+            seconds_per_question: (ctx) =>
+                copycat.int(ctx.seed, { min: 10, max: 60 }),
+        }),
+    );
+
+    for (const quiz of quizzes.quiz) {
+        let orderNumber = 1;
+        await seed.quiz_question((x) =>
+            x(
+                { min: 3, max: 20 },
+                {
+                    quiz_id: quiz.id,
+                    order_number: () => orderNumber++,
+                },
+            ),
+        );
+    }
+
+    const questionAttempts = await seed.question_attempt((x) => x(200));
+
+    for (const questionAttempt of questionAttempts.question_attempt) {
+        await seed.answer_attempt((x) =>
+            x(4, {
+                question_attempt_id: questionAttempt.id,
+            }),
+        );
+    }
+
     process.exit();
 };
 

@@ -13,6 +13,11 @@ export function useNavigationEntries() {
         if (await role.hasRole(UserRole.Student)) {
             navigationEntries.value.push(
                 {
+                    label: "Quizze",
+                    icon: "pi pi-list-check",
+                    route: "/quiz",
+                },
+                {
                     label: "Eigene Fragen",
                     icon: "pi pi-question",
                     route: "/question",

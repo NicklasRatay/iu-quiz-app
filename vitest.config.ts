@@ -1,5 +1,5 @@
 import { defineVitestConfig } from "@nuxt/test-utils/config";
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 
 dotenv.config(); // Explicitly load environment variables
 

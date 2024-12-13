@@ -193,7 +193,7 @@ const loading = ref(true);
 onMounted(async () => {
     const questionData = useQuestionData();
     const data = await questionData.load(props.questionId);
-console.log(data)
+
     question.value = data.question;
     answers.value = data.answers;
     courses.value = data.courses;
