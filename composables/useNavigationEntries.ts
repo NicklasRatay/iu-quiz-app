@@ -48,6 +48,13 @@ export function useNavigationEntries() {
                 },
             );
         }
+        if (await role.hasRole(UserRole.Admin)) {
+            navigationEntries.value.push({
+                label: "Nutzende",
+                icon: "pi pi-users",
+                route: "/user",
+            });
+        }
     };
 
     onMounted(() => {
