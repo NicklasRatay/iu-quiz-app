@@ -84,6 +84,13 @@ export type Database = {
             foreignKeyName: "answer_attempt_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "answer_attempt_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
@@ -99,6 +106,13 @@ export type Database = {
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "answer_attempt_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
             referencedColumns: ["user_id"]
           },
           {
@@ -156,6 +170,13 @@ export type Database = {
             foreignKeyName: "answer_option_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "answer_option_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
@@ -178,6 +199,13 @@ export type Database = {
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "answer_option_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
             referencedColumns: ["user_id"]
           },
           {
@@ -226,6 +254,13 @@ export type Database = {
             foreignKeyName: "category_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "category_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
@@ -234,6 +269,13 @@ export type Database = {
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "category_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
             referencedColumns: ["user_id"]
           },
           {
@@ -282,6 +324,13 @@ export type Database = {
             foreignKeyName: "course_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "course_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
@@ -290,6 +339,13 @@ export type Database = {
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "course_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
             referencedColumns: ["user_id"]
           },
           {
@@ -338,6 +394,13 @@ export type Database = {
             foreignKeyName: "marked_question_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "marked_question_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
@@ -366,6 +429,13 @@ export type Database = {
             foreignKeyName: "marked_question_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "marked_question_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
@@ -374,6 +444,13 @@ export type Database = {
             columns: ["user_id"]
             isOneToOne: false
             referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "marked_question_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
             referencedColumns: ["user_id"]
           },
           {
@@ -431,6 +508,13 @@ export type Database = {
             foreignKeyName: "profile_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "profile_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
@@ -439,6 +523,13 @@ export type Database = {
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "profile_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
             referencedColumns: ["user_id"]
           },
           {
@@ -493,6 +584,13 @@ export type Database = {
             foreignKeyName: "question_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "question_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
@@ -515,6 +613,13 @@ export type Database = {
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "question_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
             referencedColumns: ["user_id"]
           },
           {
@@ -569,6 +674,13 @@ export type Database = {
             foreignKeyName: "question_attempt_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "question_attempt_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
@@ -578,6 +690,13 @@ export type Database = {
             isOneToOne: false
             referencedRelation: "quiz_participant"
             referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "question_attempt_quiz_participant_id_fkey"
+            columns: ["quiz_participant_id"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_participant"
+            referencedColumns: ["participant_id"]
           },
           {
             foreignKeyName: "question_attempt_quiz_question_id_fkey"
@@ -591,6 +710,13 @@ export type Database = {
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "question_attempt_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
             referencedColumns: ["user_id"]
           },
           {
@@ -646,6 +772,13 @@ export type Database = {
             foreignKeyName: "question_category_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "question_category_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
@@ -668,6 +801,13 @@ export type Database = {
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "question_category_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
             referencedColumns: ["user_id"]
           },
           {
@@ -723,6 +863,13 @@ export type Database = {
             foreignKeyName: "question_course_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "question_course_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
@@ -745,6 +892,13 @@ export type Database = {
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "question_course_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
             referencedColumns: ["user_id"]
           },
           {
@@ -814,6 +968,13 @@ export type Database = {
             foreignKeyName: "quiz_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "quiz_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
@@ -850,6 +1011,13 @@ export type Database = {
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "quiz_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
             referencedColumns: ["user_id"]
           },
           {
@@ -901,6 +1069,13 @@ export type Database = {
             foreignKeyName: "quiz_participant_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "quiz_participant_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
@@ -919,10 +1094,24 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
+            foreignKeyName: "quiz_participant_quiz_id_fkey"
+            columns: ["quiz_id"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["quiz_id"]
+          },
+          {
             foreignKeyName: "quiz_participant_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "quiz_participant_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
             referencedColumns: ["user_id"]
           },
           {
@@ -937,6 +1126,13 @@ export type Database = {
             columns: ["user_id"]
             isOneToOne: false
             referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "quiz_participant_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
             referencedColumns: ["user_id"]
           },
           {
@@ -991,6 +1187,13 @@ export type Database = {
             foreignKeyName: "quiz_question_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "quiz_question_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
@@ -1023,10 +1226,24 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
+            foreignKeyName: "quiz_question_quiz_id_fkey"
+            columns: ["quiz_id"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["quiz_id"]
+          },
+          {
             foreignKeyName: "quiz_question_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "quiz_question_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
             referencedColumns: ["user_id"]
           },
           {
@@ -1123,6 +1340,13 @@ export type Database = {
             foreignKeyName: "user_role_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "user_role_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
@@ -1144,6 +1368,13 @@ export type Database = {
             foreignKeyName: "user_role_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "user_role_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
@@ -1152,6 +1383,13 @@ export type Database = {
             columns: ["user_id"]
             isOneToOne: false
             referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "user_role_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
             referencedColumns: ["user_id"]
           },
           {
@@ -1193,6 +1431,13 @@ export type Database = {
             foreignKeyName: "question_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "question_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
@@ -1201,6 +1446,13 @@ export type Database = {
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "question_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
             referencedColumns: ["user_id"]
           },
           {
@@ -1242,6 +1494,13 @@ export type Database = {
             foreignKeyName: "quiz_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "quiz_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
@@ -1256,10 +1515,85 @@ export type Database = {
             foreignKeyName: "quiz_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "quiz_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
             referencedRelation: "vw_user_role_list"
             referencedColumns: ["user_id"]
           },
         ]
+      }
+      vw_quiz_participant: {
+        Row: {
+          email: string | null
+          first_name: string | null
+          last_name: string | null
+          participant_id: number | null
+          quiz_id: number | null
+          user_id: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "quiz_participant_quiz_id_fkey"
+            columns: ["quiz_id"]
+            isOneToOne: false
+            referencedRelation: "quiz"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "quiz_participant_quiz_id_fkey"
+            columns: ["quiz_id"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "quiz_participant_quiz_id_fkey"
+            columns: ["quiz_id"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["quiz_id"]
+          },
+          {
+            foreignKeyName: "quiz_participant_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profile"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "quiz_participant_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "vw_quiz_results"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "quiz_participant_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "vw_user_role_list"
+            referencedColumns: ["user_id"]
+          },
+        ]
+      }
+      vw_quiz_results: {
+        Row: {
+          email: string | null
+          first_name: string | null
+          has_used_hint: boolean | null
+          last_name: string | null
+          order_number: number | null
+          points: number | null
+          question: string | null
+          quiz_id: number | null
+          user_id: string | null
+        }
+        Relationships: []
       }
       vw_user_role_list: {
         Row: {
@@ -1287,6 +1621,15 @@ export type Database = {
           table_name: string
         }
         Returns: undefined
+      }
+      create_question_attempt_with_answers: {
+        Args: {
+          p_quiz_participant_id: number
+          p_quiz_question_id: number
+          p_has_used_hint: boolean
+          p_answers: Json
+        }
+        Returns: Json
       }
       create_quiz: {
         Args: {

@@ -9,6 +9,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
     // Define route-to-roles mapping here
     const routeRoles: Record<string, UserRole[]> = {
         "/user": [UserRole.Admin],
+        "/quiz": [UserRole.Student],
         "/question": [UserRole.Student],
         "/marked-question": [UserRole.Student],
         "/category": [UserRole.Student],
