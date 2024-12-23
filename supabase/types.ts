@@ -1641,6 +1641,12 @@ export type Database = {
         }
         Returns: number
       }
+      get_current_streak: {
+        Args: {
+          p_user_id: string
+        }
+        Returns: number
+      }
       get_interactable_quizzes_for_user: {
         Args: {
           p_user_id: string
@@ -1661,6 +1667,20 @@ export type Database = {
           type_severity: string | null
           updated_at: string | null
           updated_by: string | null
+        }[]
+      }
+      get_top_users_by_course: {
+        Args: {
+          p_course_id?: number
+        }
+        Returns: {
+          user_id: string
+          email: string
+          first_name: string
+          last_name: string
+          correct_answers: number
+          total_answers: number
+          accuracy_percentage: number
         }[]
       }
       has_role: {
