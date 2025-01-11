@@ -26,6 +26,29 @@ Installing Dependencies:
 npm install
 ```
 
+### Environment Variables
+
+Set up a `.env` file in the root directory of the project with the following environment variables. They are displayed in the terminal after running `npx supabase start`.
+
+-   `SUPABASE_URL`: The API URL of the Supabase project.
+-   `SUPABASE_KEY`: The anon API key of the Supabase project.
+-   `SUPABASE_SERVICE_KEY`: The service API key of the Supabase project.
+-   `SUPABASE_DB_URL`: The URL of the Supabase project's database.
+
+### General
+
+Running Linting:
+
+```bash
+npm run lint
+```
+
+Running Linting with Fix:
+
+```bash
+npm run lint-fix
+```
+
 ### Backend
 
 Starting Supabase PostgreSQL Container:
@@ -34,7 +57,7 @@ Starting Supabase PostgreSQL Container:
 npx supabase start
 ```
 
-Resetting the Database:
+Rebuild Database from Migrations:
 
 ```bash
 npx supabase db reset
@@ -46,10 +69,46 @@ Stopping Supabase PostgreSQL Container:
 npx supabase stop
 ```
 
+Testing the Database:
+
+```bash
+npm run test-db
+```
+
+Creating a Migration:
+
+```bash
+npx supabase migration new <migration-name>
+```
+
+Generating Types from Database Schema:
+
+```bash
+npm run db-types
+```
+
+Generating Seed SQL from seed.ts:
+
+```bash
+npm run seed
+```
+
 ### Frontend
 
 Starting the App in Development Mode:
 
 ```bash
 npm run dev
+```
+
+Testing the App:
+
+```bash
+npm run test-app
+```
+
+Testing the App with Coverage Report:
+
+```bash
+npm run test-app-coverage
 ```
