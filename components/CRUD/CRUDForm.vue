@@ -1,17 +1,18 @@
 <template>
     <Form
+        v-slot="$form"
         v-focustrap
         :initial-values="initialValues"
         :resolver="resolver"
         @submit="$emit('submit', $event)"
     >
         <!-- Use <CRUDFormField /> and <Button type="submit" /> in this slot -->
-        <slot />
+        <slot :form="($form as unknown as Record<string, FormFieldState>)" />
     </Form>
 </template>
 
 <script setup lang="ts">
-import type { FormSubmitEvent } from "@primevue/forms";
+import type { FormSubmitEvent, FormFieldState } from "@primevue/forms";
 import { isEmpty } from "lodash-es";
 import { yupResolver } from "@primevue/forms/resolvers/yup";
 import * as yup from "yup";
@@ -40,6 +41,8 @@ const addField = (id: string, schema: yup.AnySchema, initialValue: any) => {
     if (schema) schemas.value[id] = schema;
     initialValues.value[id] = initialValue;
 };
+
+const getFieldValue = (id: string) => initialValues.value[id];
 
 // For CRUDFormField component
 provide("$fcCRUDForm", {

@@ -1638,6 +1638,8 @@ export type Database = {
           p_number_of_questions: number
           p_course_ids?: number[]
           p_category_ids?: number[]
+          p_difficulty?: number
+          p_user_id?: string
         }
         Returns: number
       }
