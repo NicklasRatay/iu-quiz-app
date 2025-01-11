@@ -129,7 +129,9 @@ const loadData = async () => {
     const { data, error } = await supabase
         .from("vw_quiz_results")
         .select("*")
-        .eq("quiz_id", props.quizId);
+        .eq("quiz_id", props.quizId)
+        .order("email")
+        .order("order_number");
     if (error) {
         simpleToast.error(error.message);
         return;
