@@ -1,13 +1,13 @@
-CREATE OR REPLACE VIEW vw_question_difficulty AS
+CREATE OR REPLACE VIEW vw_question_difficulty WITH (SECURITY_INVOKER=TRUE) AS
 SELECT 
     q.id,
     q.question,
-    COALESCE(SUM(CASE WHEN ao.is_correct AND aa.is_selected_as_correct THEN 1 ELSE 0 END)::float / 
+    COALESCE(SUM(CASE WHEN (ao.is_correct AND aa.is_selected_as_correct) OR (NOT ao.is_correct AND NOT aa.is_selected_as_correct) THEN 1 ELSE 0 END)::float / 
              NULLIF(COUNT(aa.id), 0), 0) * 100 AS correct_percentage,
     CASE
-        WHEN COALESCE(SUM(CASE WHEN ao.is_correct AND aa.is_selected_as_correct THEN 1 ELSE 0 END)::float / 
+        WHEN COALESCE(SUM(CASE WHEN (ao.is_correct AND aa.is_selected_as_correct) OR (NOT ao.is_correct AND NOT aa.is_selected_as_correct) THEN 1 ELSE 0 END)::float / 
                       NULLIF(COUNT(aa.id), 0), 0) >= 0.66 THEN 1
-        WHEN COALESCE(SUM(CASE WHEN ao.is_correct AND aa.is_selected_as_correct THEN 1 ELSE 0 END)::float / 
+        WHEN COALESCE(SUM(CASE WHEN (ao.is_correct AND aa.is_selected_as_correct) OR (NOT ao.is_correct AND NOT aa.is_selected_as_correct) THEN 1 ELSE 0 END)::float / 
                       NULLIF(COUNT(aa.id), 0), 0) BETWEEN 0.33 AND 0.66 THEN 2
         ELSE 3
     END AS difficulty
